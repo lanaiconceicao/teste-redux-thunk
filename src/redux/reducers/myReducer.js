@@ -4,7 +4,7 @@ import { LOADING_TYPE, SUCCESS_TYPE, FAILED_REQUEST } from '../actions';
 const INITIAL_STATE = {
   email: '',
   isLoading: false,
-  imageChar: '',
+  imagesChar: [],
   error: '',
 };
 
@@ -23,7 +23,7 @@ export function reducer(state = INITIAL_STATE, action) {
     case LOADING_TYPE:
       return { ...state, isLoading: true };
     case SUCCESS_TYPE:
-      return { ...state, imageChar: action.payload, isLoading: false };
+      return { ...state, imagesChar: action.payload, isLoading: false };
     case FAILED_REQUEST:
       return { ...state, error: action.payload, isLoading: false };
     default:
@@ -31,6 +31,3 @@ export function reducer(state = INITIAL_STATE, action) {
   }
 }
 
-export default () => {
-  return { myReducer, reducer };
-}
